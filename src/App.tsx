@@ -11,6 +11,9 @@ import Auth from "./pages/Auth";
 import Invoices from "./pages/Invoices";
 import Customers from "./pages/Customers";
 import Reports from "./pages/Reports";
+import Bills from "./pages/Bills";
+import Banking from "./pages/Banking";
+import ChartOfAccounts from "./pages/ChartOfAccounts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +46,21 @@ const App = () => (
               <Route path="/reports" element={
                 <ProtectedRoute>
                   <Reports />
+                </ProtectedRoute>
+              } />
+              <Route path="/bills" element={
+                <ProtectedRoute>
+                  <Bills />
+                </ProtectedRoute>
+              } />
+              <Route path="/banking" element={
+                <ProtectedRoute>
+                  <Banking />
+                </ProtectedRoute>
+              } />
+              <Route path="/accounts" element={
+                <ProtectedRoute>
+                  <ChartOfAccounts />
                 </ProtectedRoute>
               } />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
