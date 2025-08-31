@@ -25,6 +25,7 @@ export type Database = {
           invoice_id: string | null
           reconciled: boolean | null
           reference: string | null
+          user_id: string | null
         }
         Insert: {
           amount: number
@@ -36,6 +37,7 @@ export type Database = {
           invoice_id?: string | null
           reconciled?: boolean | null
           reference?: string | null
+          user_id?: string | null
         }
         Update: {
           amount?: number
@@ -47,6 +49,7 @@ export type Database = {
           invoice_id?: string | null
           reconciled?: boolean | null
           reference?: string | null
+          user_id?: string | null
         }
         Relationships: [
           {
@@ -128,6 +131,7 @@ export type Database = {
           supplier_id: string
           total: number
           updated_at: string
+          user_id: string | null
           vat_amount: number
         }
         Insert: {
@@ -141,6 +145,7 @@ export type Database = {
           supplier_id: string
           total?: number
           updated_at?: string
+          user_id?: string | null
           vat_amount?: number
         }
         Update: {
@@ -154,6 +159,7 @@ export type Database = {
           supplier_id?: string
           total?: number
           updated_at?: string
+          user_id?: string | null
           vat_amount?: number
         }
         Relationships: [
@@ -173,6 +179,7 @@ export type Database = {
           account_type: string
           created_at: string
           id: string
+          user_id: string | null
         }
         Insert: {
           account_code?: string | null
@@ -180,6 +187,7 @@ export type Database = {
           account_type: string
           created_at?: string
           id?: string
+          user_id?: string | null
         }
         Update: {
           account_code?: string | null
@@ -187,6 +195,7 @@ export type Database = {
           account_type?: string
           created_at?: string
           id?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -197,6 +206,7 @@ export type Database = {
           email: string | null
           id: string
           name: string
+          user_id: string | null
         }
         Insert: {
           address?: string | null
@@ -204,6 +214,7 @@ export type Database = {
           email?: string | null
           id?: string
           name: string
+          user_id?: string | null
         }
         Update: {
           address?: string | null
@@ -211,6 +222,7 @@ export type Database = {
           email?: string | null
           id?: string
           name?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -277,6 +289,7 @@ export type Database = {
           subtotal: number
           total: number
           updated_at: string
+          user_id: string | null
           vat_amount: number
         }
         Insert: {
@@ -290,6 +303,7 @@ export type Database = {
           subtotal?: number
           total?: number
           updated_at?: string
+          user_id?: string | null
           vat_amount?: number
         }
         Update: {
@@ -303,6 +317,7 @@ export type Database = {
           subtotal?: number
           total?: number
           updated_at?: string
+          user_id?: string | null
           vat_amount?: number
         }
         Relationships: [
@@ -367,6 +382,7 @@ export type Database = {
           description: string | null
           id: string
           reference: string
+          user_id: string | null
         }
         Insert: {
           created_at?: string
@@ -374,6 +390,7 @@ export type Database = {
           description?: string | null
           id?: string
           reference: string
+          user_id?: string | null
         }
         Update: {
           created_at?: string
@@ -381,6 +398,7 @@ export type Database = {
           description?: string | null
           id?: string
           reference?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -394,6 +412,7 @@ export type Database = {
           invoice_id: string | null
           method: string | null
           reference: string | null
+          user_id: string | null
         }
         Insert: {
           amount: number
@@ -404,6 +423,7 @@ export type Database = {
           invoice_id?: string | null
           method?: string | null
           reference?: string | null
+          user_id?: string | null
         }
         Update: {
           amount?: number
@@ -414,6 +434,7 @@ export type Database = {
           invoice_id?: string | null
           method?: string | null
           reference?: string | null
+          user_id?: string | null
         }
         Relationships: [
           {
@@ -466,6 +487,7 @@ export type Database = {
           email: string | null
           id: string
           name: string
+          user_id: string | null
         }
         Insert: {
           address?: string | null
@@ -473,6 +495,7 @@ export type Database = {
           email?: string | null
           id?: string
           name: string
+          user_id?: string | null
         }
         Update: {
           address?: string | null
@@ -480,6 +503,7 @@ export type Database = {
           email?: string | null
           id?: string
           name?: string
+          user_id?: string | null
         }
         Relationships: []
       }
