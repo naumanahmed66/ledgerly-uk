@@ -244,8 +244,8 @@ const Invoices = () => {
   }
 
   return (
-    <div className="p-6 space-y-6">
-      <div className="flex justify-between items-center">
+    <div className="p-4 md:p-6 space-y-6">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold">Invoices</h1>
           <p className="text-muted-foreground">Manage your sales invoices</p>
@@ -258,7 +258,7 @@ const Invoices = () => {
               New Invoice
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogContent className="w-full max-w-4xl max-h-[90vh] overflow-y-auto mx-4">
             <DialogHeader>
               <DialogTitle>Create New Invoice</DialogTitle>
               <DialogDescription>
@@ -267,7 +267,7 @@ const Invoices = () => {
             </DialogHeader>
             
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Customer</Label>
                   <Select value={newInvoice.customer_id} onValueChange={(value) => 
@@ -331,7 +331,7 @@ const Invoices = () => {
                       )}
                     </div>
                     
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label>Description</Label>
                         <Input
@@ -434,25 +434,27 @@ const Invoices = () => {
           ) : (
             <div className="space-y-4">
               {invoices.map((invoice) => (
-                <div key={invoice.id} className="flex items-center justify-between p-4 border rounded-lg">
-                  <div className="flex items-center gap-4">
-                    <div>
-                      <p className="font-semibold">{invoice.invoice_number}</p>
-                      <p className="text-sm text-muted-foreground">{invoice.customer.name}</p>
+                <div key={invoice.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border rounded-lg space-y-3 sm:space-y-0">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4 flex-1">
+                    <div className="flex items-center gap-4 flex-1">
+                      <div>
+                        <p className="font-semibold">{invoice.invoice_number}</p>
+                        <p className="text-sm text-muted-foreground">{invoice.customer.name}</p>
+                      </div>
+                      <Badge variant={getStatusVariant(invoice.status)}>
+                        {invoice.status}
+                      </Badge>
                     </div>
-                    <Badge variant={getStatusVariant(invoice.status)}>
-                      {invoice.status}
-                    </Badge>
+                    
+                    <div className="text-left sm:text-right">
+                      <p className="font-semibold">£{Number(invoice.total).toLocaleString()}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {new Date(invoice.date).toLocaleDateString()}
+                      </p>
+                    </div>
                   </div>
                   
-                  <div className="text-right">
-                    <p className="font-semibold">£{Number(invoice.total).toLocaleString()}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {new Date(invoice.date).toLocaleDateString()}
-                    </p>
-                  </div>
-                  
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 self-start sm:self-center">
                     <Button variant="ghost" size="sm">
                       <Eye className="w-4 h-4" />
                     </Button>
