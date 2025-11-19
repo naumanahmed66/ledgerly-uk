@@ -1,1 +1,10 @@
 project_id = "dzlbhufjorhmxtpktzga"
+
+[functions.hmrc-oauth]
+verify_jwt = true
+
+[functions.hmrc-obligations]
+verify_jwt = true
+
+[functions.hmrc-submit-return]
+verify_jwt = true

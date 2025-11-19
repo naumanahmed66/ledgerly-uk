@@ -226,6 +226,42 @@ export type Database = {
         }
         Relationships: []
       }
+      hmrc_oauth_tokens: {
+        Row: {
+          access_token: string
+          created_at: string
+          expires_at: string
+          id: string
+          refresh_token: string
+          scope: string | null
+          token_type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          access_token: string
+          created_at?: string
+          expires_at: string
+          id?: string
+          refresh_token: string
+          scope?: string | null
+          token_type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          access_token?: string
+          created_at?: string
+          expires_at?: string
+          id?: string
+          refresh_token?: string
+          scope?: string | null
+          token_type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       invoice_lines: {
         Row: {
           created_at: string
@@ -480,6 +516,45 @@ export type Database = {
         }
         Relationships: []
       }
+      subscriptions: {
+        Row: {
+          created_at: string
+          current_period_end: string | null
+          current_period_start: string | null
+          id: string
+          plan_type: string
+          status: string
+          stripe_customer_id: string | null
+          stripe_subscription_id: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          current_period_end?: string | null
+          current_period_start?: string | null
+          id?: string
+          plan_type: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          current_period_end?: string | null
+          current_period_start?: string | null
+          id?: string
+          plan_type?: string
+          status?: string
+          stripe_customer_id?: string | null
+          stripe_subscription_id?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       suppliers: {
         Row: {
           address: string | null
@@ -548,6 +623,113 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      vat_obligations: {
+        Row: {
+          created_at: string
+          due_date: string
+          end_date: string
+          id: string
+          period_key: string
+          received_date: string | null
+          start_date: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          due_date: string
+          end_date: string
+          id?: string
+          period_key: string
+          received_date?: string | null
+          start_date: string
+          status: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          due_date?: string
+          end_date?: string
+          id?: string
+          period_key?: string
+          received_date?: string | null
+          start_date?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      vat_returns: {
+        Row: {
+          created_at: string
+          hmrc_form_bundle_number: string | null
+          hmrc_processing_date: string | null
+          id: string
+          net_vat_due: number
+          obligation_id: string | null
+          period_key: string
+          submitted_at: string | null
+          total_acquisitions_ex_vat: number
+          total_value_goods_supplied_ex_vat: number
+          total_value_purchases_ex_vat: number
+          total_value_sales_ex_vat: number
+          total_vat_due: number
+          user_id: string
+          vat_due_acquisitions: number
+          vat_due_sales: number
+          vat_reclaimed_curr_period: number
+        }
+        Insert: {
+          created_at?: string
+          hmrc_form_bundle_number?: string | null
+          hmrc_processing_date?: string | null
+          id?: string
+          net_vat_due?: number
+          obligation_id?: string | null
+          period_key: string
+          submitted_at?: string | null
+          total_acquisitions_ex_vat?: number
+          total_value_goods_supplied_ex_vat?: number
+          total_value_purchases_ex_vat?: number
+          total_value_sales_ex_vat?: number
+          total_vat_due?: number
+          user_id: string
+          vat_due_acquisitions?: number
+          vat_due_sales?: number
+          vat_reclaimed_curr_period?: number
+        }
+        Update: {
+          created_at?: string
+          hmrc_form_bundle_number?: string | null
+          hmrc_processing_date?: string | null
+          id?: string
+          net_vat_due?: number
+          obligation_id?: string | null
+          period_key?: string
+          submitted_at?: string | null
+          total_acquisitions_ex_vat?: number
+          total_value_goods_supplied_ex_vat?: number
+          total_value_purchases_ex_vat?: number
+          total_value_sales_ex_vat?: number
+          total_vat_due?: number
+          user_id?: string
+          vat_due_acquisitions?: number
+          vat_due_sales?: number
+          vat_reclaimed_curr_period?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "vat_returns_obligation_id_fkey"
+            columns: ["obligation_id"]
+            isOneToOne: false
+            referencedRelation: "vat_obligations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {

@@ -14,6 +14,8 @@ import Reports from "./pages/Reports";
 import Bills from "./pages/Bills";
 import Banking from "./pages/Banking";
 import ChartOfAccounts from "./pages/ChartOfAccounts";
+import VatMtd from "./pages/VatMtd";
+import Subscription from "./pages/Subscription";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -61,6 +63,16 @@ const App = () => (
               <Route path="/accounts" element={
                 <ProtectedRoute>
                   <ChartOfAccounts />
+                </ProtectedRoute>
+              } />
+              <Route path="/vat-mtd" element={
+                <ProtectedRoute>
+                  <VatMtd />
+                </ProtectedRoute>
+              } />
+              <Route path="/subscription" element={
+                <ProtectedRoute>
+                  <Subscription />
                 </ProtectedRoute>
               } />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
