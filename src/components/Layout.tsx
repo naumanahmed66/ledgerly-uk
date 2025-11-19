@@ -41,6 +41,7 @@ const Layout = ({ children }: LayoutProps) => {
     { name: 'Bills', href: '/bills', icon: Receipt },
     { name: 'Banking', href: '/banking', icon: Banknote },
     { name: 'Reports', href: '/reports', icon: BarChart3 },
+    { name: 'VAT MTD', href: '/vat-mtd', icon: FileText },
     { name: 'Customers', href: '/customers', icon: Users },
     { name: 'Chart of Accounts', href: '/accounts', icon: Calculator },
   ];
